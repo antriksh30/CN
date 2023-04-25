@@ -3,16 +3,8 @@ using namespace std;
 
 string DecimalToBinary(int num)
 {
-    string str;
-    while(num){
-        if(num & 1)
-            str+='1';
-        else 
-            str+='0';
-        num>>=1; 
-    }   
-    reverse(str.begin(),str.end());
-    return str;
+    int n = (int)(log2(num));
+    return bitset<64>(num).to_string().substr(64-n-1);                                                  
 }
 
 string complement(string a){
